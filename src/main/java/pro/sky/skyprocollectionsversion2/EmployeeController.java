@@ -17,21 +17,31 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
     @RequestMapping(path = "/add")
-    public Employee addEmployee(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName){
-        return employeeService.addEmployee(lastName, firstName);
+    public Employee addEmployee(@RequestParam("lastName") String lastName,
+                                @RequestParam("firstName") String firstName,
+                                @RequestParam("salary") int salary,
+                                @RequestParam("department") int department){
+        return employeeService.addEmployee(lastName, firstName, salary, department);
     }
     @RequestMapping(path = "/remove")
-    public Employee removeEmployee(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName){
-        return employeeService.dismissalEmployee(lastName,firstName);
+    public Employee removeEmployee(@RequestParam("lastName") String lastName,
+                                   @RequestParam("firstName") String firstName,
+                                   @RequestParam("salary") int salary,
+                                   @RequestParam("department") int department){
+        return employeeService.dismissalEmployee(lastName,firstName, salary, department);
     }
     @RequestMapping(path = "/find")
-    public Employee findEmployee(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName){
-        return employeeService.searchEmployee(lastName, firstName);
+    public Employee findEmployee(@RequestParam("lastName") String lastName,
+                                 @RequestParam("firstName") String firstName,
+                                 @RequestParam("salary") int salary,
+                                 @RequestParam("department") int department ){
+        return employeeService.searchEmployee(lastName, firstName, salary, department);
     }
     @GetMapping
     public Collection<Employee> printEmployee(){
         return employeeService.printAllEmployee();
     }
+
 
 
 }
