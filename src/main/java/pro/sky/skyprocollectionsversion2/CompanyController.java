@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/departments") // нужно для того, чтобы не вводить эту надпись в каждом "@RequestMapping"
@@ -32,21 +32,10 @@ public class CompanyController {
     public List<Employee> printAllEmployee(@RequestParam("departmentId") int departmentId) {
         return companyService.printAllEmployee(departmentId);
     }
-    @RequestMapping(path = "/alll") // незнаю как обойти проблему с одиновой ссылко
-    public Map<Integer, Employee> printAllEmployeeByDepartment() {
+    @RequestMapping(path = "/all")
+    public Map<Integer, List<Employee>> printAllEmployeeByDepartment() {
         return companyService.printAllEmployeeByDepartment();
-//        @RequestMapping(path = "/remove")
-//        public Employee removeEmployee(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName){
-//            return companyService.dismissalEmployee(lastName,firstName);
-//        }
-//        @RequestMapping(path = "/find")
-//        public Employee findEmployee(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName){
-//            return companyService.searchEmployee(lastName, firstName);
-//        }
-//        @GetMapping
-//        public Collection<Employee> printEmployee(){
-//            return companyService.printAllEmployee();
-//        }
+
     }
 }
 

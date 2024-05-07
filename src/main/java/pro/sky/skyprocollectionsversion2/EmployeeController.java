@@ -25,17 +25,13 @@ public class EmployeeController {
     }
     @RequestMapping(path = "/remove")
     public Employee removeEmployee(@RequestParam("lastName") String lastName,
-                                   @RequestParam("firstName") String firstName,
-                                   @RequestParam("salary") int salary,
-                                   @RequestParam("department") int department){
-        return employeeService.dismissalEmployee(lastName,firstName, salary, department);
+                                   @RequestParam("firstName") String firstName){
+        return employeeService.dismissalEmployee(lastName,firstName);
     }
     @RequestMapping(path = "/find")
     public Employee findEmployee(@RequestParam("lastName") String lastName,
-                                 @RequestParam("firstName") String firstName,
-                                 @RequestParam("salary") int salary,
-                                 @RequestParam("department") int department ){
-        return employeeService.searchEmployee(lastName, firstName, salary, department);
+                                 @RequestParam("firstName") String firstName){
+        return employeeService.searchEmployee(lastName, firstName);
     }
     @GetMapping
     public Collection<Employee> printEmployee(){
