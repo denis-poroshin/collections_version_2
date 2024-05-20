@@ -1,5 +1,8 @@
 package pro.sky.skyprocollectionsversion2;
 
+import org.apache.catalina.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -47,6 +50,7 @@ public class Employee {
     }
 
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,7 +66,8 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Отдел: %d\nФамилия: %s\nИмя: %s\nЗарплата: %d".formatted(department,familName, name, salary);
+        return "Отдел: %d\nФамилия: %s\nИмя: %s\nЗарплата: %d".formatted(department,StringUtils.capitalize(familName), StringUtils.capitalize(name), salary);
+
     }
 
 

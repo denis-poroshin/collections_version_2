@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/employee") // нужно для того, чтобы не вводить эту надпись в каждом "@RequestMapping"
 public class EmployeeController {
@@ -20,7 +21,7 @@ public class EmployeeController {
     public Employee addEmployee(@RequestParam("lastName") String lastName,
                                 @RequestParam("firstName") String firstName,
                                 @RequestParam("salary") int salary,
-                                @RequestParam("department") int department){
+                                @RequestParam("department") int department)  {
         return employeeService.addEmployee(lastName, firstName, salary, department);
     }
     @RequestMapping(path = "/remove")
